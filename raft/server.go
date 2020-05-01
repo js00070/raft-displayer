@@ -45,7 +45,7 @@ func CleanNodes(c *gin.Context) {
 func DisconnectNode(c *gin.Context) {
 	s := c.Query("number")
 	number := 0
-	fmt.Sscanf(s, "%d", number)
+	fmt.Sscanf(s, "%d", &number)
 	serverCfg.disconnect(number)
 	c.JSON(200, gin.H{
 		"msg": "success!",
@@ -56,7 +56,7 @@ func DisconnectNode(c *gin.Context) {
 func ReconnectNode(c *gin.Context) {
 	s := c.Query("number")
 	number := 0
-	fmt.Sscanf(s, "%d", number)
+	fmt.Sscanf(s, "%d", &number)
 	serverCfg.connect(number)
 	c.JSON(200, gin.H{
 		"msg": "success!",

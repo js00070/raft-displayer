@@ -25,7 +25,47 @@ $(document).ready(function(){
     });
   });
   $("#5").click(function(){
+    $.get("/api/startcommand?number=0&command=101",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#6").click(function(){
+    $.get("/api/startcommand?number=1&command=101",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#7").click(function(){
     $.get("/api/startcommand?number=2&command=101",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#8").click(function(){
+    $.get("/api/disconnect?number=0",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#9").click(function(){
+    $.get("/api/reconnect?number=0",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#10").click(function(){
+    $.get("/api/disconnect?number=1",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#11").click(function(){
+    $.get("/api/reconnect?number=1",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#12").click(function(){
+    $.get("/api/disconnect?number=2",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#13").click(function(){
+    $.get("/api/reconnect?number=2",function(data,status){
         alert("返回结果："+JSON.stringify(data));
     });
   });
@@ -34,19 +74,43 @@ $(document).ready(function(){
 </head>
 <body>
     <div>
-        <button id="1">启动三节点raft</button>
+      <button id="1">启动三节点raft</button>
     </div>
     <div>
-        <button id="2">获取编号为0的节点状态</button>
+      <button id="2">获取编号为0的节点状态</button>
     </div>
     <div>
-        <button id="3">获取编号为1的节点状态</button>
+      <button id="3">获取编号为1的节点状态</button>
     </div>
     <div>
-        <button id="4">获取编号为2的节点状态</button>
+      <button id="4">获取编号为2的节点状态</button>
     </div>
     <div>
-        <button id="5">向节点2发送command101</button>
+      <button id="5">向节点0发送command101</button>
+    </div>
+    <div>
+      <button id="6">向节点1发送command101</button>
+    </div>
+    <div>
+      <button id="7">向节点2发送command101</button>
+    </div>
+    <div>
+      <button id="8">断开节点0</button>
+    </div>
+    <div>
+      <button id="9">重连节点0</button>
+    </div>
+    <div>
+      <button id="10">断开节点1</button>
+    </div>
+    <div>
+      <button id=“11”>重连节点1</button>
+    </div>
+    <div>
+      <button id="12">断开节点2</button>
+    </div>
+    <div>
+      <button id="13">重连节点2</button>
     </div>
 
 </body>
