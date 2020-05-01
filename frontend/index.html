@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/index/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#1").click(function(){
+    $.get("/api/startnodes?servers=3",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#2").click(function(){
+    $.get("/api/getstate?number=0",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#3").click(function(){
+    $.get("/api/getstate?number=1",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#4").click(function(){
+    $.get("/api/getstate?number=2",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+  $("#5").click(function(){
+    $.get("/api/startcommand?number=2&command=101",function(data,status){
+        alert("返回结果："+JSON.stringify(data));
+    });
+  });
+});
+</script>
+</head>
+<body>
+    <div>
+        <button id="1">启动三节点raft</button>
+    </div>
+    <div>
+        <button id="2">获取编号为0的节点状态</button>
+    </div>
+    <div>
+        <button id="3">获取编号为1的节点状态</button>
+    </div>
+    <div>
+        <button id="4">获取编号为2的节点状态</button>
+    </div>
+    <div>
+        <button id="5">向节点2发送command101</button>
+    </div>
+
+</body>
+</html>
