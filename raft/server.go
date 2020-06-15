@@ -92,6 +92,16 @@ func StartCommand(c *gin.Context) {
 	number := 0
 	fmt.Sscanf(s, "%d", &number)
 	cmd, _ := strconv.ParseInt(command, 10, 64)
+
+	if !serverCfg.connected[number] {
+		c.JSON(200, gin.H{
+			"index":    -1,
+			"term":     -1,
+			"isLeader": false,
+		})
+		return
+	}
+
 	index, term, isLeader := serverCfg.rafts[number].Start(int(cmd))
 	c.JSON(200, gin.H{
 		"index":    index,
